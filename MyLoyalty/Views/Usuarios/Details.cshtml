@@ -1,0 +1,39 @@
+﻿@model MyLoyalty.Models.Usuario
+
+@{
+    ViewData["Title"] = "Detalhes da Conta";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<div>
+    <h4>Conta de usuário</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Login)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Login)
+        </dd>
+       
+       
+        <dt>
+            @Html.DisplayNameFor(model => model.adm)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.adm)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a class="btn btn-info" asp-action="Index"><i class="glyphicon glyphicon-arrow-left">&nbsp;</i>Voltar</a>&nbsp;
+    <a class="btn btn-default" asp-action="Edit" asp-route-id="@Model.Id"><i class="glyphicon glyphicon-edit">&nbsp;</i>Editar</a>
+</div>

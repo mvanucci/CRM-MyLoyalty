@@ -1,0 +1,75 @@
+﻿@model IEnumerable<MyLoyalty.Models.Cliente>
+
+@{
+    ViewData["Title"] = "Registro de Clientes - Vendas Não Realizadas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-default"><i class="glyphicon glyphicon-plus">&nbsp;</i>Novo Registro</a>
+    <a asp-action="Index" class="btn btn-default"><i class="glyphicon glyphicon-list-alt">&nbsp;</i>Todos os Registro</a>
+    <a asp-action="VendaSim" class="btn btn-default"><i class="glyphicon glyphicon-ok-circle">&nbsp;</i>Vendas Realizadas ( Sim )</a>
+    <a asp-action="VendaNao" class="btn btn-default"><i class="glyphicon glyphicon-ban-circle">&nbsp;</i>Vendas Não Realizadas (Não)</a>
+</p>
+<div class="row">
+    <table class="table table-hover">
+        <thead>
+            <tr class="success">
+                <th>
+                    @Html.DisplayNameFor(model => model.nome)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.email)
+                </th>
+               
+                <th>
+                    @Html.DisplayNameFor(model => model.telefone)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.pdtEncontrado)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.vendaRealizada)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.produto.nome)
+                </th>
+                <th>&nbsp;</th>
+            </tr>
+        </thead>
+     
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.nome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.email)
+                    </td>
+                   
+                    <td>
+                        @Html.DisplayFor(modelItem => item.telefone)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.pdtEncontrado)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.vendaRealizada)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.produto.nome)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" class="btn btn-primary" data-toggle="tooltip" data-placement="left" title="Alterar" asp-route-id="@item.id"><i class="glyphicon glyphicon-hand-up"></i></a>
+                        <a asp-action="Details" class="btn btn-info" data-toggle="tooltip" data-placement="top" title="Detalhes" asp-route-id="@item.id"><i class="glyphicon glyphicon-th-list"></i></a>
+                        <a asp-action="Delete" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Excluir Cadastro" asp-route-id="@item.id"><i class="glyphicon glyphicon-trash"></i></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,71 @@
+﻿@model IEnumerable<MyLoyalty.Models.Produto>
+
+@{
+    ViewData["Title"] = "Registro de produtos";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-default"><i class="glyphicon glyphicon-plus">&nbsp;</i>Novo Registro</a>
+</p>
+<table class="table table-hover">
+    <thead>
+        <tr class="success">
+            <th>
+                @Html.DisplayNameFor(model => model.nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tipo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.codigo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.cor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tamanho)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.genero)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.estoque)
+            </th>
+            <th>&nbsp;</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tipo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.codigo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tamanho)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.genero)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.estoque)
+            </td>
+            <td>
+                <a asp-action="Edit" class="btn btn-primary" data-toggle="tooltip" data-placement="left" title="Alterar" asp-route-id="@item.id"><i class="glyphicon glyphicon-hand-up"></i></a>
+                <a asp-action="Details" class="btn btn-info" data-toggle="tooltip" data-placement="top" title="Detalhes" asp-route-id="@item.id"><i class="glyphicon glyphicon-th-list"></i></a>
+                <a asp-action="Delete" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Excluir Cadastro" asp-route-id="@item.id"><i class="glyphicon glyphicon-trash"></i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

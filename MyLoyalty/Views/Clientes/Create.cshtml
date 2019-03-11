@@ -1,0 +1,74 @@
+﻿@model MyLoyalty.Models.ViewModels.ProdutoFormViewModel
+
+@{
+    ViewData["Title"] = "Novo Cliente";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<h4>@ViewData["Title"]</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="cliente.nome" class="control-label"></label>
+                <input asp-for="cliente.nome" class="form-control" />
+                <span asp-validation-for="cliente.nome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="cliente.email" class="control-label"></label>
+                <input asp-for="cliente.email" class="form-control" />
+                <span asp-validation-for="cliente.email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="cliente.cpf" class="control-label"></label>
+                <input asp-for="cliente.cpf" class="form-control cpf" />
+                <span asp-validation-for="cliente.cpf" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="cliente.dataNascimento" class="control-label"></label>
+                <input asp-for="cliente.dataNascimento" class="form-control" />
+                <span asp-validation-for="cliente.dataNascimento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="cliente.telefone" class="control-label"></label>
+                <input asp-for="cliente.telefone" class="form-control" />
+                <span asp-validation-for="cliente.telefone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="cliente.pdtEncontrado" class="control-label"></label>
+                <select asp-for="cliente.pdtEncontrado" class="form-control" asp-items="@Model.options">
+                    <option value="">-- Selecione --</option>
+                </select>
+                <span asp-validation-for="cliente.pdtEncontrado" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="cliente.vendaRealizada" class="control-label"></label>
+                <select asp-for="cliente.vendaRealizada" class="form-control" asp-items="@Model.options">
+                    <option value="">-- Selecione --</option>
+                </select>
+                <span asp-validation-for="cliente.vendaRealizada" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="cliente.produtoid" class="control-label"></label>
+                <select asp-for="cliente.produtoid" asp-items="@(new SelectList(Model.produtos,"id",
+                "nome"))" class="form-control"></select>
+            </div>
+
+            <div class="form-group">
+
+                <a class="btn btn-info" asp-action="Index"><i class="glyphicon glyphicon-arrow-left">&nbsp;</i>Voltar</a>&nbsp;
+                <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-floppy-disk">&nbsp;</i>Cadastrar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

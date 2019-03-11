@@ -1,0 +1,66 @@
+﻿@model MyLoyalty.Models.Cliente
+
+@{
+    ViewData["Title"] = "Detalhes do registro";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<div>
+    <h4>Cliente</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nome)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.nome)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.cpf)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.cpf)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.dataNascimento)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.dataNascimento)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.telefone)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.telefone)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.pdtEncontrado)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.pdtEncontrado)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.vendaRealizada)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.vendaRealizada)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.produto)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.produto.nome)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a class="btn btn-info" asp-action="Index"><i class="glyphicon glyphicon-arrow-left">&nbsp;</i>Voltar</a>&nbsp;
+    <a class="btn btn-default" asp-action="Edit" asp-route-id="@Model.id"><i class="glyphicon glyphicon-edit">&nbsp;</i>Editar</a>
+</div>

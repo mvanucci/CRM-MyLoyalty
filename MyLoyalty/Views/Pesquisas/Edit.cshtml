@@ -1,0 +1,49 @@
+﻿@model MyLoyalty.Models.Pesquisa
+
+@{
+    ViewData["Title"] = "Pesquisa de Satisfação";
+    Layout = "~/Views/Shared/_LayoutErrors.cshtml";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<h4>Pesquisa</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="id" />
+            
+            <div class="form-group">
+                <label asp-for="atendimento" class="control-label"></label>
+                <input asp-for="atendimento" class="form-control" />
+                <span asp-validation-for="atendimento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="notaVendedor" class="control-label"></label>
+                <input asp-for="notaVendedor" class="form-control" />
+                <span asp-validation-for="notaVendedor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="status" class="control-label"></label>
+                <input asp-for="status" class="form-control" />
+                <span asp-validation-for="status" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="resp" value="1" />
+            <div class="form-group">
+                <label asp-for="accProduto" class="control-label"></label>
+                <input asp-for="accProduto" class="form-control" />
+                <span asp-validation-for="accProduto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-send">&nbsp;</i>Enviar pesquisa</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

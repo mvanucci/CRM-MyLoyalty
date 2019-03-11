@@ -1,0 +1,63 @@
+﻿@model MyLoyalty.Models.Produto
+
+@{
+    ViewData["Title"] = "Editar";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<h4>Produto</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="id" />
+            <div class="form-group">
+                <label asp-for="nome" class="control-label"></label>
+                <input asp-for="nome" class="form-control" />
+                <span asp-validation-for="nome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="tipo" class="control-label"></label>
+                <input asp-for="tipo" class="form-control" />
+                <span asp-validation-for="tipo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="codigo" class="control-label"></label>
+                <input asp-for="codigo" class="form-control" />
+                <span asp-validation-for="codigo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="cor" class="control-label"></label>
+                <input asp-for="cor" class="form-control" />
+                <span asp-validation-for="cor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="tamanho" class="control-label"></label>
+                <input asp-for="tamanho" class="form-control" />
+                <span asp-validation-for="tamanho" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="genero" class="control-label"></label>
+                <input asp-for="genero" class="form-control" />
+                <span asp-validation-for="genero" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="estoque" class="control-label"></label>
+                <input asp-for="estoque" class="form-control" />
+                <span asp-validation-for="estoque" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <a class="btn btn-info" asp-action="Index"><i class="glyphicon glyphicon-arrow-left">&nbsp;</i>Voltar</a>&nbsp;
+                <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-floppy-disk">&nbsp;</i>Salvar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,49 @@
+﻿@model MyLoyalty.Models.Pesquisa
+
+@{
+    ViewData["Title"] = "Detalhes";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<div>
+    <h4>Pesquisa</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cliente.nome)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.cliente.nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.atendimento)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.atendimento)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.notaVendedor)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.notaVendedor)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.status)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.status)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.accProduto)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.accProduto)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a  class="btn btn-info" asp-action="Index"><i class="glyphicon glyphicon-arrow-left">&nbsp;</i>Voltar</a>
+</div>

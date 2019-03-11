@@ -1,0 +1,50 @@
+﻿@model IEnumerable<MyLoyalty.Models.Usuario>
+
+@{
+    ViewData["Title"] = "Registro de Usuários";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-default"><i class="glyphicon glyphicon-plus">&nbsp;</i>Nova Conta</a>
+</p>
+<table class="table">
+    <thead>
+        <tr class="success">
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Login)
+            </th>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.adm)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Login)
+            </td>
+           
+            <td>
+                @Html.DisplayFor(modelItem => item.adm)
+            </td>
+            <td>
+                <a asp-action="Edit" class="btn btn-primary" data-toggle="tooltip" data-placement="left" title="Alterar" asp-route-id="@item.Id"><i class="glyphicon glyphicon-hand-up"></i></a>
+                <a asp-action="Details" class="btn btn-info" data-toggle="tooltip" data-placement="top" title="Detalhes" asp-route-id="@item.Id"><i class="glyphicon glyphicon-th-list"></i></a>
+                <a asp-action="Delete" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Excluir Conta" asp-route-id="@item.Id"><i class="glyphicon glyphicon-trash"></i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
